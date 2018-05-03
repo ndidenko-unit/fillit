@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndidenko/amnishen    <marvin@42.fr>        +#+  +:+       +#+        */
+/*   By: amnishen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 13:23:47 by amnishen          #+#    #+#             */
 /*   Updated: 2017/12/14 14:40:55 by amnishen         ###   ########.fr       */
@@ -25,23 +25,28 @@ void			print_map(char **map)
 	}
 }
 
-static	void	make_fillit(char *buf)
+static	void	make_fillit(char *buf) // есть вопросы
 {
 	char	**map;
 	t_tetri **t_arr;
 	int		n;
 
-	t_arr = tetri_arr(buf); 
+	t_arr = tetri_arr(buf);
+	//создаем массив структур с тетраминами
 	n = prev_map_size(t_arr);
+	// определяем предварительный размер стороны карты
 	map = map_create(n);
+	// создаем карту такого размера
 	while (backtrack(t_arr, 0, map, n) == 0)
 	{
 		ft_strdel(map);
+		// удаляем карту
 		n++;
 		map = map_create(n);
+		//создаем карту размером на 1 больше
 	}
 	print_map(map);
-	ft_strdel(map);
+	//ft_strdel(map);
 }
 
 int				main(int argc, char **argv)

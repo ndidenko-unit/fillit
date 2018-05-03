@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndidenko/amnishen    <marvin@42.fr>        +#+  +:+       +#+        */
+/*   By: amnishen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 15:39:16 by amnishen          #+#    #+#             */
 /*   Updated: 2017/10/26 15:40:10 by amnishen         ###   ########.fr       */

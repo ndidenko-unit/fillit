@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   tetri_set.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndidenko/amnishen    <marvin@42.fr>        +#+  +:+       +#+        */
+/*   By: amnishen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 14:09:22 by amnishen          #+#    #+#             */
 /*   Updated: 2017/12/16 15:36:20 by amnishen         ###   ########.fr       */
@@ -13,6 +13,8 @@
 #include "fillit.h"
 
 static	t_tetri		*new_tetri(char *str, int start, char letter)
+//создаем структуру с координатами точек (0ая с реальной координатой,
+// остальные три относительно нее), и буквой.
 {
 	t_tetri		*tetri;
 	int			n;
@@ -27,13 +29,13 @@ static	t_tetri		*new_tetri(char *str, int start, char letter)
 	{
 		if (str[n] == '#' && flag == 0)
 		{
-			tetri->x[0] = (n - start) % 5;
+			tetri->x[0] = (n - start) % 5; //определяем координаты первой точки
 			tetri->y[0] = (n - start) / 5;
 			flag = 1;
 		}
 		else if (str[n] == '#' && flag > 0)
 		{
-			tetri->x[flag] = (n - start) % 5 - tetri->x[0];
+			tetri->x[flag] = (n - start) % 5 - tetri->x[0]; //опред коорд остальных
 			tetri->y[flag++] = (n - start) / 5 - tetri->y[0];
 		}
 	}
@@ -42,6 +44,7 @@ static	t_tetri		*new_tetri(char *str, int start, char letter)
 }
 
 static	int			tetri_num(char *str)
+//считаем количество структур (тетрамин)
 {
 	int			n;
 	int			res;
@@ -57,8 +60,9 @@ static	int			tetri_num(char *str)
 }
 
 t_tetri				**tetri_arr(char *str)
+//создаем массив структур с тетраминами
 {
-	int			a;
+	//int			a;
 	int			num;
 	int			n;
 	char		letter;
@@ -78,6 +82,6 @@ t_tetri				**tetri_arr(char *str)
 			n++;
 	}
 	t_arr[num] = NULL;
-	a = 0;
+	//a = 0;
 	return (t_arr);
 }

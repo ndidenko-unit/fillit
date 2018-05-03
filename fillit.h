@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndidenko/amnishen    <marvin@42.fr>        +#+  +:+       +#+        */
+/*   By: amnishen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 13:48:56 by amnishen          #+#    #+#             */
 /*   Updated: 2017/12/10 02:19:26 by amnishen         ###   ########.fr       */

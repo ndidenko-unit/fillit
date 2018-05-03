@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   map_set.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndidenko/amnishen    <marvin@42.fr>        +#+  +:+       +#+        */
+/*   By: amnishen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 09:14:41 by amnishen          #+#    #+#             */
 /*   Updated: 2017/12/14 14:40:40 by amnishen         ###   ########.fr       */
@@ -13,6 +13,7 @@
 #include "fillit.h"
 
 int			prev_map_size(t_tetri **t_arr)
+//определяем предварительный размер карты (ее стороны)
 {
 	int		n;
 	int		res;
@@ -29,6 +30,7 @@ int			prev_map_size(t_tetri **t_arr)
 }
 
 char		**map_create(int map_size)
+// создаем первую строку и копируем пока y не станет равен размеру карты
 {
 	int		x;
 	int		y;

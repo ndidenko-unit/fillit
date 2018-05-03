@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   valid_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndidenko/amnishen    <marvin@42.fr>        +#+  +:+       +#+        */
+/*   By: amnishen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 09:45:21 by amnishen          #+#    #+#             */
 /*   Updated: 2017/12/02 13:16:07 by amnishen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//проверяет на невалидные символы + размер массива
 static	int		symbol_check(char *str)
 {
 	int		n;
@@ -23,7 +24,7 @@ static	int		symbol_check(char *str)
 			return (0);
 		n++;
 		if (str[n] == '#')
-			res++;
+			res++; 
 	}
 	if (n <= 545 && res > 0)
 		return (1);
@@ -38,18 +39,21 @@ static	int		size_check(char *str, int n)
 	while (str[n] != '\0')
 	{
 		count_y = 0;
+		//проверка на кол-во строк в блоке
 		while (count_y++ != 4)
 		{
 			count_x = 0;
+			//проверка на кол-во символов в строке
 			while (count_x++ != 4)
 			{
-				if (str[n] != '.' && str[n] != '#')
+				if (str[n] != '.' && str[n] != '#') // убераем?
 					return (0);
 				n++;
 			}
 			if (str[n++] != '\n')
 				return (0);
 		}
+		// проверка на пустую строку после блока
 		if (str[n] == '\n' && str[n] != '\0')
 			n++;
 		else if (str[n] != '\0' && str[n] != '\n')
@@ -59,6 +63,7 @@ static	int		size_check(char *str, int n)
 }
 
 static	int		chains_num(char *str, int start)
+// проверка на количество # в тетрамине и возвращает кол-во связей
 {
 	int		n;
 	int		res;
@@ -88,6 +93,7 @@ static	int		chains_num(char *str, int start)
 }
 
 static	int		tetri_check(char *str)
+// если кол-во связей 6 или 8, переход к след блоку
 {
 	int		n;
 	int		res;
@@ -112,8 +118,6 @@ int				total_check(char *str)
 	n = 0;
 	while (str[n] != '\0')
 		n++;
-	if (str[n - 1] != '\n' || (str[n - 2] != '#' && str[n - 2] != '.'))
-		return (0);
 	if (symbol_check(str) == 1 && size_check(str, 0) == 1 &&
 		tetri_check(str) == 1)
 		return (1);
